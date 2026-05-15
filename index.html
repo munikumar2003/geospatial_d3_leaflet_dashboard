@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteorite Landings Dashboard | TerraStrike</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="dashboard-container">
+        <header class="header">
+            <div class="logo">
+                <div class="pulse-ring"></div>
+                <h1>Terra<span>Strike</span></h1>
+            </div>
+            <div class="header-stats">
+                <div class="stat-box year-filter-box">
+                    <span class="stat-label">Year Range</span>
+                    <div class="year-filter-inputs">
+                        <input type="number" id="year-min" value="1500" step="10">
+                        <span>-</span>
+                        <input type="number" id="year-max" value="2024" step="10">
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Total Strikes</span>
+                    <span class="stat-value" id="total-events">...</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Max Mass (kg)</span>
+                    <span class="stat-value" id="max-mass">...</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="sidebar left-sidebar">
+                <div class="panel">
+                    <h2>Mass Distribution</h2>
+                    <div id="bar-chart"></div>
+                </div>
+                <div class="panel detail-panel">
+                    <h2>Interactive Details</h2>
+                    <div id="selection-content">
+                        <div class="empty-state">
+                            <div class="icon-emoji">👆</div>
+                            <p>Tap any country or meteorite on the map to explore its data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-wrapper">
+                <div class="map-container">
+                    <div id="map"></div>
+                    <div class="legend">
+                        <h3>Meteorite Mass</h3>
+                        <div class="legend-scale">
+                            <div class="legend-item"><span class="color-box mass-low"></span>
+                                < 10 kg</div>
+                                    <div class="legend-item"><span class="color-box mass-med"></span> 10 - 100 kg</div>
+                                    <div class="legend-item"><span class="color-box mass-high"></span> > 100 kg</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar right-sidebar">
+                    <div class="panel list-panel">
+                        <h2>Heaviest Strikes</h2>
+                        <ul id="event-list" class="event-list">
+                        </ul>
+                    </div>
+                </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
